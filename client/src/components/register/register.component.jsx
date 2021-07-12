@@ -69,7 +69,7 @@ const Register = (props) => {
     return (
         <form onSubmit={handleSubmit} className="register-container">
             <h1>Bienvenido!</h1>
-            <h3>Completa el formulario con tus datos</h3>
+            <h2>Completa el formulario con tus datos</h2>
             { error ? <h4 style={{color: 'red', margin: '0' }}>{error}</h4> : null }
             <div className="register-inputs">
                 <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>

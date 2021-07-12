@@ -15,7 +15,6 @@
 
 .intro-text {
   color: white;
-  font-family: Leckerli;
   font-size: 100px;
   text-align: center;
   text-shadow: 2px 2px 4px black;
@@ -44,11 +43,15 @@
   color: black;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 490px) {
   .intro-container {
     width: 90%;
+    padding-top: 25px;
   }
   .intro-button {
-    width: 30%;
+    width: 50%;
+  }
+  .intro-text {
+    font-size: 65px;
   }
 }

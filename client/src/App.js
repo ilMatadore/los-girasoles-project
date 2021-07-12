@@ -13,6 +13,7 @@ import RegisterPage from './pages/register-page/register-page';
 import ProfilePage from './pages/profilepage/profile-page';
 import CartPage from './pages/cartpage/cart.page';
 import CheckoutPage from './pages/checkoutpage/checkout.page';
+import ContactPage from './pages/contactpage/contact.page';
 
 
 
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/cart" component={CartPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
+            <Route exact path="/contact" component={ContactPage} />
           </Switch>        
           <Footer />
         </div> 

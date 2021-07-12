@@ -21,10 +21,6 @@
   align-items: center;
   justify-content: flex-end;
   padding: 5px;
-
-  @media screen and (max-width: 800px) {
-    width: 65%;
-  }
 }
 
 .OptionLink {
@@ -57,39 +53,6 @@
 
 #Menu {
   display: none;
-}
-
-@media screen and (max-width: 600px) {
-  .HeaderContainer {
-    height: 60px;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  .LogoContainer {
-    width: 70%;
-  }
-  .OptionsContainer {
-    width: 30%;
-  }
-
-  .title {
-    font-size: 40px;
-  }
-  .logo {
-    height: 65px;
-  }
-  #Home,
-  #Contact,
-  #Cart,
-  #SignIn,
-  #SignOut,
-  #Profile {
-    display: none;
-  }
-
-  #Menu {
-    display: block;
-  }
 }
 
 .side-menu-container {
@@ -127,4 +90,47 @@
   right: 15px;
   font-size: 45px;
   margin-left: 50px;
+}
+
+.header-user-name {
+  color: white;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 490px) {
+  .HeaderContainer {
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .LogoContainer {
+    width: 60%;
+  }
+  .OptionsContainer {
+    width: 40%;
+  }
+
+  .title {
+    font-size: 22px;
+    width: 100%;
+  }
+  .logo {
+    height: 55px;
+  }
+  #Home,
+  #Contact,
+  #Cart,
+  #SignIn,
+  #SignOut,
+  #Profile {
+    display: none;
+  }
+
+  #Menu {
+    display: block;
+  }
+  .header-user-name {
+    font-size: 20px;
+    text-align: right;
+  }
 }

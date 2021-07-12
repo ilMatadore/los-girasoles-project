@@ -104,7 +104,6 @@ const adicionales = [
 const Products = () => {
 
   const cartCtx = useContext(CartContext)
-  console.log(cartCtx)
 
     return (
         <div id="canastas" className="products-page-container">
@@ -126,7 +125,7 @@ const Products = () => {
             </div>
             <div className="products-follow-us">
                 <p>Siguenos en <FaInstagram/></p>
-                <p>Por consutlas <FaWhatsapp /></p>
+                <p>Por consultas <FaWhatsapp /></p>
             </div>
             <div className="products-image-bottom-container">
                 

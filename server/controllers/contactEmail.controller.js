@@ -7,7 +7,7 @@ function sendContactEmail(req, res) {
       if (err) {
         res.status(500).json({ message: "Internal Error", err: err });
       } else {
-        res.status(200).json({ message: "Email Sent!", data: data });
+        res.status(200).json({ message: "Su mensaje ha sido enviado!", data: data });
       }
     });
 }

@@ -6,9 +6,9 @@ const Aditional = ({adicional, addItem}) => {
     const { title, price, description } = adicional;
     return (
         <div className="adicional">
-            <div style={{display: "flex", width: "70%"}}>
-                <h3 style={{paddingRight: "10px",}}>{title}</h3>
-                <h3 >{description}</h3> 
+            <div className="adicional-title">
+                <p style={{paddingRight: "10px",}}>{title}</p>
+                <p>{description}</p> 
             </div>
             <div style={{display: "flex", float:"right", width: "30%", justifyContent: 'flex-end', alignItems: 'center', }}>
                 <a className="adicional-price">${price}</a>

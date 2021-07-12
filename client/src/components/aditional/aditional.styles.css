@@ -16,6 +16,12 @@
   transform: scale(1.05);
 }
 
+.adicional-title {
+  display: flex;
+  width: 70%;
+  font-weight: 900;
+}
+
 .adicional-button {
   background-color: transparent;
   border: none;
@@ -34,4 +40,10 @@
   font-size: 30px;
   font-weight: 900;
   padding-right: 20px;
+}
+
+@media screen and (max-width: 490px) {
+  .adicional-price {
+    padding-right: 10px;
+  }
 }

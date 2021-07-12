@@ -52,3 +52,12 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+.app.contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./assets/contacto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}

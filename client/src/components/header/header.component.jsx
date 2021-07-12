@@ -47,10 +47,10 @@ const Header = (props) => {
             </div> 
             }
             <div className="OptionsContainer">
-                { userCtx.id ? <p style={{color: 'white', fontSize: "30px"}}>Hola {userCtx.first_name}</p> : null }
+                { userCtx.id ? <p className="header-user-name">Hola {userCtx.first_name}</p> : null }
                 <div id="Menu" to="/" className="OptionLink" onClick={hide}><FaBars style={{ fontSize: '30px'}} /></div>
                 <Link id="Home" to="/" className="OptionLink"><FaHome style={{ fontSize: '30px'}} /></Link>
-                <div id="Contact" className="OptionLink"><FaEnvelope style={{ fontSize: '30px'}} /></div>
+                <Link id="Contact" to="/contact" className="OptionLink"><FaEnvelope style={{ fontSize: '30px'}} /></Link>
                 <Link id="Cart" to="/cart" className="OptionLink"><FaShoppingCart style={{ fontSize: '30px'}} />{cartCtx.cartItemsCount > 0 ? <span className="item-count">{cartCtx.cartItemsCount}</span> : null}</Link>
                 { userCtx.id ? 
                     <React.Fragment>
