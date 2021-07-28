@@ -1,7 +1,7 @@
 .register-page-container {
   min-height: calc(100vh - 250px);
   width: 100%;
-  margin-top: 150px;
+  margin: 100px auto;
 }
 .register-page-form-container {
   width: 50%;

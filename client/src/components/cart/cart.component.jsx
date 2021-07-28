@@ -2,12 +2,14 @@ import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import './cart.styles.css'
 
+import CartItem from '../cart-item/cart-item.component';
+
 import { CartContext } from '../../context/cartContext/cart.context';
 
 
 const Cart = () => {
 
-    const cartCtx = useContext(CartContext)
+    const { cartItems, addItem, removeItem, cartTotal } = useContext(CartContext)
 
     return (
         <div className="cart-container">
@@ -15,24 +17,18 @@ const Cart = () => {
             <div className="table-container">
                 <h3>Productos</h3>
                 <h3>Cantidad</h3>
-                <h3>Precio</h3>
+                <h3>Precio x un.</h3>
             </div>
-                {cartCtx.cartItems.map((item) => (
-                    <div key={item.id} className="rows-container">
-                        <span>{item.title}</span>
-                        <div style={{display: 'flex'}}>
-                            <div>&#10094;</div><span>{item.quantity}</span><div>&#10095;</div> 
-                        </div>
-                        <span>{item.price}</span> 
-                    </div>
+                {cartItems.map((item) => (
+                    <CartItem key={item.id} cartItem={item} addItem={addItem} removeItem={removeItem}/>
                     ))}
             <div className="total-container">
                 <h3>Total </h3>
-                <h3>$ {cartCtx.cartTotal}</h3>
+                <h3>$ {cartTotal}</h3>
             </div>
             <div className="cart-button-container">
-                <button><Link to="/">Volver</Link></button>
-                <button className="cart-button"><Link to="/checkout">Continuar</Link></button>
+                <Link to="/"><button className="cart-back-button">Volver</button></Link>
+                <Link to="/checkout"><button className="cart-button">Continuar</button></Link>
             </div>
                         
                 

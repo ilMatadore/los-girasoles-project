@@ -19,6 +19,21 @@
 
 .rows-container span {
   line-height: 40px;
+  width: 100%;
+}
+
+.rows-container div {
+  width: 33%;
+}
+
+.rows-container > div:first-of-type {
+  text-align: left;
+  width: 40%;
+}
+
+.rows-container > div:last-of-type {
+  text-align: right;
+  width: 40%;
 }
 
 .total-container {
@@ -34,7 +49,11 @@
   justify-content: space-around;
 }
 
-.cart-button-container :first-child {
+.cart-button-container a {
+  width: 30%;
+}
+
+.cart-back-button {
   font-size: 20px;
   font-family: 'Amatic SC', cursive;
   cursor: pointer;
@@ -43,7 +62,7 @@
   border-radius: 10px;
   text-align: center;
   font-weight: 900;
-  width: 20%;
+  width: 100%;
 }
 
 .cart-button {
@@ -56,7 +75,7 @@
   text-align: center;
   background-color: orange;
   font-weight: 900;
-  width: 20%;
+  width: 100%;
 }
 
 .cart-button:hover {
@@ -65,4 +84,17 @@
 
 a {
   text-decoration: none;
+}
+
+.arrow-rows {
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 490px) {
+  .cart-container {
+    padding: 5px 5px;
+    width: 90%;
+    margin: auto;
+  }
 }

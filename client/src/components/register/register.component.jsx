@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { UserContext } from '../../context/userContext/user.context';
 import './register.styles.css';
 
 const Register = (props) => {
+
+    const { successLogin } = useContext(UserContext);
+
     const [userData, setUserData] = useState({
         first_name: '', 
         last_name: '',
@@ -44,7 +48,7 @@ const Register = (props) => {
             return;
           }
         try {
-            fetch('http://localhost:3001/user/register', {
+            fetch('https://localhost:3001/user/register', {
                 method: 'post',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -59,7 +63,13 @@ const Register = (props) => {
                 })
             })
             .then((response) => response.json())
-            .then((res) => res.id ? props.history.push('/') : setError(res.error))
+            .then((user) => { 
+                if (user.id) {
+                    successLogin(user)
+                    props.history.push('/')
+                } else {
+                    setError(user.error)
+                }})
             .catch((err) => setError("Error al crear el usuario, intenta de nuevo"))
         } catch(err) {
             console.log(err)

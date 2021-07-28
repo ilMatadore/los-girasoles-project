@@ -5,15 +5,15 @@ import { FaCartPlus } from 'react-icons/fa';
 
 const Card = ({canasta, addItem}) => {
     
-    const {title, price, description} = canasta
+    const {name, price, description} = canasta
 
     return (
         <div className="card-container">
-            <p className="card-title">{title.toUpperCase()}</p>            
+            <p className="card-title">{name.toUpperCase()}</p>            
             <img src={vegetables} alt="vegetables" width="150" height="150" />            
             <div className="card-price">${price}</div>
-            <div><ul>{description.map((el,_i) => (<li key={_i}>{el.toUpperCase()}</li>))}</ul></div>
-            <button className="card-button"><FaCartPlus className="card-cart-icon" onClick={()=> addItem(canasta)}/></button>
+            <div><ul>{description.map((canasta) => (<li key={canasta.id}>{canasta.name.toUpperCase()} <span>- {canasta.cantidad}</span></li>))}</ul></div>
+            <button className="card-button"><FaCartPlus className="card-cart-icon" onClick={()=>{addItem(canasta)}}/></button>
         </div>
     )
 }

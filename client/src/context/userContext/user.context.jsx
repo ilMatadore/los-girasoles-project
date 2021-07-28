@@ -1,28 +1,34 @@
 import React, { useState, createContext } from 'react';
 
-export const UserContext = createContext({
-    id: '',
-    first_name: '',
-    last_name: '',
-    email: '',
-    address: '',
-    phone: '',
-    city: '',
-    state: '',
-    successLogin: () => {},
-    userLogout: () => {},
-    updateProfile: () => {},
-})
+
+const localUser = JSON.parse(localStorage.getItem('user')) || [];
+
+export const UserContext = createContext(
+//     {
+//     id: '',
+//     first_name: '',
+//     last_name: '',
+//     email: '',
+//     address: '',
+//     phone: '',
+//     city: '',
+//     state: '',
+//     successLogin: () => {},
+//     userLogout: () => {},
+//     updateProfile: () => {},
+// }
+)
 
 const UserProvider = ({ children }) => {
-    const [id, setId] = useState('');
-    const [first_name, setFirstName] = useState('');
-    const [last_name, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [phone, setPhone] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
+
+    const [id, setId] = useState(localUser.id);
+    const [first_name, setFirstName] = useState(localUser.first_name);
+    const [last_name, setLastName] = useState(localUser.last_name);
+    const [email, setEmail] = useState(localUser.email);
+    const [address, setAddress] = useState(localUser.address);
+    const [phone, setPhone] = useState(localUser.phone);
+    const [city, setCity] = useState(localUser.city);
+    const [state, setState] = useState(localUser.state);
 
     const successLogin = (user) => {
         setId(user.id);
@@ -33,6 +39,7 @@ const UserProvider = ({ children }) => {
         setPhone(user.phone);
         setCity(user.city);
         setState(user.state);
+        localStorage.setItem('user', JSON.stringify(user.id));
     }
 
     const userLogout = () => {
@@ -44,6 +51,9 @@ const UserProvider = ({ children }) => {
         setPhone('');
         setCity('');
         setState('');
+        localStorage.removeItem('user');
+        localStorage.removeItem('accessToken');
+        localStorage.setItem('localCart', JSON.stringify([]));
     }
 
     const updateProfile = (user) => {

@@ -1,14 +1,17 @@
 import React, { useState, useContext } from 'react';
+import { UserContext} from "../../context/userContext/user.context";
 import './contact.styles.css';
 
 
 const Contact = () => {
 
+    const userCtx = useContext(UserContext)
+
     const [userData, setUserData] = useState({
-        first_name: '', 
-        last_name: '',
-        email: '',
-        phone: '',
+        first_name: userCtx ? userCtx.first_name : '', 
+        last_name: userCtx ? userCtx.last_name : '',
+        email: userCtx ? userCtx.email : '',
+        phone: userCtx ? userCtx.phone : '',
         message: '',
 
     })
@@ -31,17 +34,17 @@ const Contact = () => {
     
     const cleanForm = () => {
         setUserData({
-            first_name: '', 
-            last_name: '',
-            email: '',
-            phone: '',
+            first_name: userCtx ? userCtx.first_name : '', 
+            last_name: userCtx ? userCtx.last_name : '',
+            email: userCtx ? userCtx.email : '',
+            phone: userCtx ? userCtx.phone : '',
             message: '',
         })
     }
     
     const handleSubmit = event => {
         event.preventDefault();
-        fetch("http://localhost:3001/contact", {
+        fetch("https://localhost:3001/contact", {
           method: "post",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

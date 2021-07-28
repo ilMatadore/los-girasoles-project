@@ -3,16 +3,19 @@ import './aditional.styles.css';
 import { FaCartPlus } from 'react-icons/fa';
 
 const Aditional = ({adicional, addItem}) => {
-    const { title, price, description } = adicional;
+
+    const { name, price } = adicional;
+
+    
+
     return (
         <div className="adicional">
             <div className="adicional-title">
-                <p style={{paddingRight: "10px",}}>{title}</p>
-                <p>{description}</p> 
+                <p style={{paddingRight: "10px",}}>{name}</p>
             </div>
             <div style={{display: "flex", float:"right", width: "30%", justifyContent: 'flex-end', alignItems: 'center', }}>
-                <a className="adicional-price">${price}</a>
-                <button className="adicional-button"><FaCartPlus className="adicional-cart-icon" onClick={()=> addItem(adicional)}/></button>
+                <span className="adicional-price">${price}</span>
+                <button className="adicional-button"><FaCartPlus className="adicional-cart-icon" onClick={()=>{addItem(adicional)}}/></button>
             </div>
             
         </div>

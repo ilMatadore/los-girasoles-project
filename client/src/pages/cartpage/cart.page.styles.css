@@ -1,7 +1,7 @@
 .cart-page-container {
   min-height: calc(100vh - 250px);
   width: 100%;
-  margin-top: 100px;
+  margin: 100px auto;
 }
 .cart-page-content-container {
   width: 50%;
@@ -14,4 +14,12 @@
   font-family: 'Amatic SC', cursive;
   font-size: 25px;
   box-shadow: 10px 10px 25px 10px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 490px) {
+  .cart-page-content-container {
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+  }
 }

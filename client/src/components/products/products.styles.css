@@ -38,9 +38,11 @@
 .products-follow-us {
   color: white;
   text-align: center;
-  width: 50%;
+  width: 80%;
   margin: auto;
   font-size: 30px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .products-image-bottom-container {
@@ -76,6 +78,7 @@
   text-decoration: none;
   font-size: 25px;
   margin: auto;
+  color: black;
 }
 
 .to-cart-button:hover {

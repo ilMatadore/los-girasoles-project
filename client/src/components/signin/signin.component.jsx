@@ -7,7 +7,7 @@ import { UserContext } from '../../context/userContext/user.context';
 const SignIn = (props) => {
 
     const userCtx = useContext(UserContext)
-
+    console.log(userCtx)
     const [userCredentials, setCredentials ] = useState({ email: '', password: '' })
     const [error, setError] = useState(null); 
     const { email, password } = userCredentials;
@@ -21,7 +21,7 @@ const SignIn = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
     
-        fetch('http://localhost:3001/user/login', {
+        fetch('https://localhost:3001/user/login', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -30,8 +30,9 @@ const SignIn = (props) => {
         })
         .then((response) => response.json())
         .then((res) => {
-            if (res.id) {
-                userCtx.successLogin(res);
+            if (res.accessToken) {
+                userCtx.successLogin(res.user);
+                localStorage.setItem('accessToken', res.accessToken)
                 props.history.push('/')
             } else {
              setError(res.error)

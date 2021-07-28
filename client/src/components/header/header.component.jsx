@@ -7,12 +7,15 @@ import { CgClose } from "react-icons/cg";
 import { UserContext } from '../../context/userContext/user.context';
 import { CartContext } from '../../context/cartContext/cart.context';
 
-const Header = (props) => {
+const Header = () => {
 
-    const [toHide, setToHide] = useState(true)
+    const [toHide, setToHide] = useState(true);
 
     const userCtx = useContext(UserContext);
     const cartCtx = useContext(CartContext);
+    console.log(cartCtx)
+
+
 
     const hide = () => {
         setToHide(!toHide)
@@ -21,7 +24,9 @@ const Header = (props) => {
     const closeSession = () => {
         hide();
         userCtx.userLogout();
+        cartCtx.clearCart();
     }
+
     
      return (
         <div className="HeaderContainer">
@@ -31,7 +36,7 @@ const Header = (props) => {
             </div>
             { toHide ? null : 
             <div className="side-menu-container">     
-                    <a className="closebtn" onClick={hide}><CgClose/></a>
+                    <span className="closebtn" onClick={hide}><CgClose/></span>
                     <Link to="/" className="OptionLink" onClick={hide}>Inicio</Link>
                     <Link to="/contact" className="OptionLink" onClick={hide}>Quienes somos</Link>
                     <Link to="/contact" className="OptionLink" onClick={hide}>Contacto</Link>
@@ -55,7 +60,7 @@ const Header = (props) => {
                 { userCtx.id ? 
                     <React.Fragment>
                         <Link id="Profile" to='/profile' className="OptionLink"><FaUserAlt style={{ fontSize: '30px' }} /></Link>
-                        <Link id="SignOut" to='/' onClick={userCtx.userLogout} className="OptionLink"><FaSignOutAlt style={{ fontSize: '30px' }} /></Link>
+                        <Link id="SignOut" to='/' onClick={() => {userCtx.userLogout(); cartCtx.clearCart()}} className="OptionLink"><FaSignOutAlt style={{ fontSize: '30px' }} /></Link>
                     </React.Fragment>
                     :
                     <Link id="SignIn" to="/signin" className="OptionLink"><FaSignInAlt style={{ fontSize: '30px'}} /></Link>

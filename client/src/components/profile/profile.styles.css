@@ -37,3 +37,27 @@
 .profile-button:hover {
   background-color: darkorange;
 }
+
+.profile-past-orders-container {
+  padding: 30px 10px;
+  width: 60%;
+  margin: auto;
+}
+
+.profile-past-orders {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-past-order {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.past-order-data {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

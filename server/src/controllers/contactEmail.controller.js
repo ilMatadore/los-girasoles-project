@@ -1,9 +1,9 @@
-const sendEmail = require("../mail");
+const { sendMailFromContact } = require("../mail");
 
 function sendContactEmail(req, res) {
     const { first_name, last_name, email, phone, message } = req.body;
   
-    sendEmail(email, first_name, last_name, phone, message, function (err, data) {
+    sendMailFromContact(email, first_name, last_name, phone, message, function (err, data) {
       if (err) {
         res.status(500).json({ message: "Internal Error", err: err });
       } else {

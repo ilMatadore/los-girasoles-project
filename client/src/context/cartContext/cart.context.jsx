@@ -1,37 +1,51 @@
-import React, {useState, createContext, useEffect} from 'react';
+import React, {useState, createContext, useEffect } from 'react';
 
-import { addItemToCart, removeItemFromCart, filterItemFromCart, getCartItemsCount, getCartTotal } from './cart.utils';
+import { addItemToCart, removeItemFromCart, filterItemFromCart, getCartItemsCount, getCartTotal,  } from './cart.utils';
 
-export const CartContext = createContext({
+export const CartContext = createContext(
+    {   
     cartItemsCount: 0,
     cartTotal: 0,
     cartItems: [],
     addItem: () => {},
     removeItem: () => {},
     clearItemFromCart: () => {},
-});
+    clearCart: () => {},
+    }   
+); 
+const localCart = JSON.parse(localStorage.getItem('localCart')) || [];
 
-const CartProvider = ({children}) => {
-
-    const [cartItems, setCartItems] = useState([]);
+const CartProvider = ({ children }) => {
+    
+    const [cartItems, setCartItems] = useState(localCart);
     const [cartTotal, setCartTotal] = useState(0);
     const [cartItemsCount, setCartItemsCount] = useState(0);
+    
 
     const addItem = (item) => {
-        setCartItems(addItemToCart(cartItems, item))
+        setCartItems(addItemToCart(cartItems, item))         
     }
 
     const removeItem = (item) => {
-        setCartTotal(removeItemFromCart(cartItems, item))
+        setCartItems(removeItemFromCart(cartItems, item))   
     }
 
     const clearItemFromCart = (item) => {
         setCartItemsCount(filterItemFromCart(cartItems, item))
     }
 
+    const clearCart = () => {
+        setCartItems([]);
+        setCartItemsCount(0);
+        console.log('jaja')
+        setCartTotal(0);
+        localStorage.setItem("localCart", [])
+    }
+    
     useEffect(() => {
         setCartItemsCount(getCartItemsCount(cartItems));
         setCartTotal(getCartTotal(cartItems));
+        localStorage.setItem("localCart", JSON.stringify(cartItems));
       }, [cartItems]);
 
     return (
@@ -41,7 +55,8 @@ const CartProvider = ({children}) => {
             cartItemsCount,
             addItem,
             removeItem,
-            clearItemFromCart
+            clearItemFromCart,
+            clearCart,
         }}>
             {children}
         </CartContext.Provider>
