@@ -1,5 +1,6 @@
 {
   "name": "girasoles-project",
+  "homepage": "https://ilmatadore.github.io/los-girasoles-project/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,12 +8,17 @@
     "install-server": "npm install --prefix server",
     "install-client": "npm install --prefix client",
     "install": "npm run install-server && npm run install-client",
-    "server" : "npm run watch --prefix server",
-    "client" : "npm start --prefix client",
-    "watch" : "npm run server & npm run client",
-    "deploy" : "npm run build --prefix client && npm start --prefix server",
-    "test": "npm run test --prefix server && npm run test --prefix client"
+    "server": "npm run watch --prefix server",
+    "client": "npm start --prefix client",
+    "watch": "npm run server & npm run client",
+    "deploy_1": "npm run build --prefix client && npm start --prefix server",
+    "test": "npm run test --prefix server && npm run test --prefix client",
+    "predeploy": "npm run build --prefix client && npm start --prefix server",
+    "deploy": "gh-pages -d build --prefix client && npm start --prefix server"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
 }
