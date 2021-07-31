@@ -18,6 +18,7 @@ const CartPage = lazy(() => import('./pages/cartpage/cart.page'));
 const CheckoutPage = lazy(() => import('./pages/checkoutpage/checkout.page'));
 const ContactPage = lazy(() => import('./pages/contactpage/contact.page'));
 const AdminPage = lazy(() => import('./pages/adminpage/admin.page'));
+const QuienesPage = lazy(() => import('./pages/quienes/quienes.page'));
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
           <Header />
           <Switch>
             <ErrorBoundary>
-            <Suspense fallback={<div>...Loading</div>}>
+            <Suspense fallback={<div className="loading">...Cargando</div>}>
               <Route exact path="/" component={Homepage}/>            
               <Route exact path='/admin' component={AdminPage} />
               <Route exact path="/signin" component={SignInPage} />
@@ -44,6 +45,7 @@ function App() {
               <Route exact path="/cart" component={CartPage} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/quienes" component={QuienesPage} />
             </Suspense>
             </ErrorBoundary>
           </Switch>        

@@ -57,7 +57,7 @@
 
 .side-menu-container {
   height: 100%;
-  width: 40%;
+  width: 50%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -70,9 +70,11 @@
 }
 
 .side-menu-container a {
-  padding: 8px 8px 8px 32px;
+  padding: 15px 8px 15px 20px;
+  border-bottom: 1px black solid;
   text-decoration: none;
-  font-size: 40px;
+  font-size: 35px;
+  text-align: left;
   font-weight: 900;
   color: #f9bc60;
   display: block;
@@ -101,18 +103,18 @@
 @media screen and (max-width: 490px) {
   .HeaderContainer {
     height: 60px;
-    padding: 10px;
+    padding: 2px;
     margin-bottom: 20px;
   }
   .LogoContainer {
-    width: 60%;
+    width: 90%;
   }
   .OptionsContainer {
-    width: 40%;
+    width: 10%;
   }
 
   .title {
-    font-size: 22px;
+    font-size: 30px;
     width: 100%;
   }
   .logo {
@@ -133,5 +135,8 @@
   .header-user-name {
     font-size: 20px;
     text-align: right;
+  }
+  .OptionLink {
+    padding: 5px 5px;
   }
 }

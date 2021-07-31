@@ -23,7 +23,7 @@ const Profile = () => {
 
     useEffect(()=> {
         const getPastOrders = () => {
-            fetch(`https://localhost:3001/order/${userCtx.id}`, {
+            fetch(`https://localhost:3001/order/${userCtx.id}`, {//https://localhost:3001
                 method: 'get',
                 headers: { "Content-Type": "application/json"},
             })
@@ -55,7 +55,7 @@ const Profile = () => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-            fetch(`https://localhost:3001/profile/${userCtx.id}`, {
+            fetch(`https://localhost:3001/profile/${userCtx.id}`, {//https://localhost:3001
                 method: 'put',
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify({
@@ -88,7 +88,7 @@ const Profile = () => {
             { updateSuccess ? <h4 style={{color: 'green', margin: '0' }}>Cambios guardados con exito!</h4> : null}
             { error ? <h4 style={{color: 'red', margin: '0' }}>{error}</h4> : null }
             <div className="profile-inputs">
-                <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                <div className="profile-inputs-container">
                     <input 
                         className="profile-input" 
                         placeholder="Nombre" 
@@ -120,7 +120,7 @@ const Profile = () => {
                         required
                     />
                 </div>
-                <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                <div className="profile-inputs-container">
                     <input
                         className="profile-input" 
                         placeholder="Correo Electronico"
@@ -134,7 +134,7 @@ const Profile = () => {
                     
                     
                 </div>
-                <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                <div className="profile-inputs-container">
                     <input
                         className="profile-input" 
                         placeholder="Direccion"

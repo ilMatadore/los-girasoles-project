@@ -14,7 +14,7 @@
     "deploy_1": "npm run build --prefix client && npm start --prefix server",
     "test": "npm run test --prefix server && npm run test --prefix client",
     "predeploy": "npm run build --prefix client",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build --prefix server"
   },
   "author": "",
   "license": "ISC",

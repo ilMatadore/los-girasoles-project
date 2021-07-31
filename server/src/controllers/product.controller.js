@@ -6,7 +6,7 @@ function getAllProducts(req, res) {
       .then((data) => {
         res.json(data);
       })
-      .catch((err) => res.status(400).json({ error: "Unable to get products" + err }));
+      .catch((err) => res.status(400).json({ error: "Unable to get products " + err }));
 }
 
 function getAvailableProducts(req, res) {
@@ -25,7 +25,7 @@ function getAllCanastas(req, res) {
       .then((data) => {
         res.json(data);
       })
-      .catch((err) => res.status(400).json({ error: "Unable to get products" + err }));
+      .catch((err) => res.status(400).json({ error: "Unable to get canastas " + err }));
 }
 
 module.exports = {

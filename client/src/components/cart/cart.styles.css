@@ -97,4 +97,7 @@ a {
     width: 90%;
     margin: auto;
   }
+  .cart-button-container {
+    width: 100%;
+  }
 }

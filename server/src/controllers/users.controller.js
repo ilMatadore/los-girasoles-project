@@ -31,7 +31,7 @@ function loginUser(req, res) {
 }
 
 function registerUser(req, res) {
-
+  
     if (!req.body) {
       return res.status(400).json({error: "Unable to register"})
     }
@@ -50,6 +50,7 @@ function registerUser(req, res) {
     } = req.body;
   
     const hash = bcrypt.hashSync(password);
+    console.log(hash)
   
     db.transaction((trx) => {
       trx
@@ -80,7 +81,7 @@ function registerUser(req, res) {
         })
         .then(trx.commit)
         .catch(trx.rollback);
-    }).catch((err) => res.status(400).json({ error: "unable to register"}));
+    }).catch((err) => res.status(400).json({ error: "unable to register" + err}));
 }
 
 

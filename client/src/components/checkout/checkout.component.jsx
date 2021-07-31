@@ -44,7 +44,7 @@ const Checkout = () => {
         e.preventDefault();
         console.log(userCtx);
         console.log(cartCtx);
-        fetch(`https://localhost:3001/order/`, {
+        fetch(`https://localhost:3001/order/`, {//https://localhost:3001
                 method: 'post',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

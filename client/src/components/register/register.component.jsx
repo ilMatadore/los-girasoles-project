@@ -48,7 +48,7 @@ const Register = (props) => {
             return;
           }
         try {
-            fetch('https://localhost:3001/user/register', {
+            fetch('https://localhost:3001/user/register', { //https://localhost:3001
                 method: 'post',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -82,7 +82,7 @@ const Register = (props) => {
             <h2>Completa el formulario con tus datos</h2>
             { error ? <h4 style={{color: 'red', margin: '0' }}>{error}</h4> : null }
             <div className="register-inputs">
-                <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                <div className="register-inputs-container">
                     <input 
                         className="register-input" 
                         placeholder="Nombre" 
@@ -114,7 +114,7 @@ const Register = (props) => {
                         required
                     />
                 </div>
-                <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                <div className="register-inputs-container">
                     <input
                         className="register-input" 
                         placeholder="Correo Electronico"
@@ -147,7 +147,7 @@ const Register = (props) => {
                         />
                     
                 </div>
-                <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                <div className="register-inputs-container">
                     <input
                         className="register-input" 
                         placeholder="Direccion"

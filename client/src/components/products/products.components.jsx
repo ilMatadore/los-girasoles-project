@@ -25,7 +25,7 @@ const Products = () => {
   const [error, setError ] = useState(null)
 
   const getAdicionales = () => {
-    fetch('https://localhost:3001/product/adicionales', {
+    fetch('https://localhost:3001/product/adicionales', {//https://localhost:3001
       method: 'GET',
       headers: { "Content-Type": "application/json" },
   })
@@ -35,7 +35,7 @@ const Products = () => {
   }
 
   const getCanastas = () => {
-    fetch('https://localhost:3001/product/canastas', {
+    fetch('https://localhost:3001/product/canastas', {//https://localhost:3001
       method: 'GET',
       headers: { "Content-Type": "application/json" },
   })

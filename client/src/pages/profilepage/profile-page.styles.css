@@ -13,3 +13,10 @@
   color: #004643;
   font-family: 'Amatic SC', cursive;
 }
+
+@media screen and (max-width: 490px) {
+  .profile-page-form-container {
+    width: 90%;
+    padding: 10px;
+  }
+}

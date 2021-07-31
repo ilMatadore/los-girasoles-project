@@ -61,3 +61,26 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.table-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 490px) {
+  .profile-inputs {
+    padding: 10px;
+  }
+  .profile-inputs-container {
+    display: block;
+  }
+  .profile-input {
+    width: 80%;
+  }
+  .profile-button {
+    width: 40%;
+  }
+  .profile-past-orders-container {
+    width: 90%;
+  }
+}

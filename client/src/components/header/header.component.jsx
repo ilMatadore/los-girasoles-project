@@ -38,7 +38,7 @@ const Header = () => {
             <div className="side-menu-container">     
                     <span className="closebtn" onClick={hide}><CgClose/></span>
                     <Link to="/" className="OptionLink" onClick={hide}>Inicio</Link>
-                    <Link to="/contact" className="OptionLink" onClick={hide}>Quienes somos</Link>
+                    <Link to="/quienes" className="OptionLink" onClick={hide}>Quienes somos</Link>
                     <Link to="/contact" className="OptionLink" onClick={hide}>Contacto</Link>
                     <Link to="/cart" className="OptionLink" onClick={hide}>Mi Carro</Link>
                     { userCtx.id ? 

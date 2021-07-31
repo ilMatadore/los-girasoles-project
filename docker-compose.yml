@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  postgres:
+    # image: 'postgres:latest'
+    image: 'restarterdev/girasoles-db'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: girasolesdb
+      POSTGRES_HOST: postgres
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: './server/postgres'
+    # links:
+    #   - los-girasoles-project
+    ports:
+      - '5432:5432'
+
+  web:
+    # build: .
+    image: 'restarterdev/los-girasoles-project'
+    # working_dir: /app
+    # environment:
+    #   POSTGRES_URI: postgres://postgres:root@localhost:5432/girasolesdb
+    # links:
+    #   - postgres
+    ports:
+      - '3001:3001'
+    # volumes:
+    #   - ./:/app

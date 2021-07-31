@@ -44,7 +44,7 @@ const Contact = () => {
     
     const handleSubmit = event => {
         event.preventDefault();
-        fetch("https://localhost:3001/contact", {
+        fetch("https://localhost:3001/contact", {//https://localhost:3001
           method: "post",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

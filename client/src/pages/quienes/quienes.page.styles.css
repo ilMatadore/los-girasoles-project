@@ -1,9 +1,9 @@
-.register-page-container {
+.quienes-page-container {
   min-height: calc(100vh - 250px);
   width: 100%;
   margin: 100px auto;
 }
-.register-page-form-container {
+.quienes-page-content-container {
   width: 50%;
   margin: auto;
   background-color: white;
@@ -11,13 +11,13 @@
   padding: 50px;
   text-align: center;
   color: #004643;
-  font-family: Geneva, Tahoma, sans-serif;
   font-family: 'Amatic SC', cursive;
-  font-size: 20px;
+  font-size: 25px;
+  box-shadow: 10px 10px 25px 10px rgba(0, 0, 0, 0.4);
 }
 
 @media screen and (max-width: 490px) {
-  .register-page-form-container {
+  .quienes-page-content-container {
     width: 90%;
     padding: 10px;
   }

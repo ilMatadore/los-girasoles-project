@@ -9,7 +9,7 @@ const Aditional = ({adicional, addItem}) => {
     
 
     return (
-        <div className="adicional">
+        <div className="adicional" data-aos="flip-down">
             <div className="adicional-title">
                 <p style={{paddingRight: "10px",}}>{name}</p>
             </div>
