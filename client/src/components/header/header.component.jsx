@@ -13,9 +13,6 @@ const Header = () => {
 
     const userCtx = useContext(UserContext);
     const cartCtx = useContext(CartContext);
-    console.log(cartCtx)
-
-
 
     const hide = () => {
         setToHide(!toHide)

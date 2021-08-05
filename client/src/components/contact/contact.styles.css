@@ -50,12 +50,24 @@ textarea {
   height: 120px;
 }
 
+.success-message {
+  color: #f9bc60;
+  background-color: #004643;
+  margin: 20px auto;
+  padding: 10px;
+  width: 80%;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
 @media screen and (max-width: 490px) {
   .contact-button {
     width: 40%;
   }
-  h2 {
+  h2,
+  h3 {
     width: 80%;
-    margin: auto;
+    margin: 20px auto;
   }
 }

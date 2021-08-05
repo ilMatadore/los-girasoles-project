@@ -7,7 +7,7 @@ import { UserContext } from '../../context/userContext/user.context';
 const SignIn = (props) => {
 
     const userCtx = useContext(UserContext)
-    console.log(userCtx)
+
     const [userCredentials, setCredentials ] = useState({ email: '', password: '' })
     const [error, setError] = useState(null); 
     const { email, password } = userCredentials;

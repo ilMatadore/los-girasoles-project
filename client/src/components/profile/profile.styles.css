@@ -67,6 +67,12 @@
   justify-content: space-between;
 }
 
+.profile-inputs-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 @media screen and (max-width: 490px) {
   .profile-inputs {
     padding: 10px;

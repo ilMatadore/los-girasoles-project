@@ -25,7 +25,7 @@ h1 {
 }
 
 .checkout-rows-container {
-  height: 200px;
+  max-height: 200px;
   overflow-y: auto;
 }
 
@@ -91,4 +91,67 @@ h1 {
 
 .checkout-input:focus {
   outline: none;
+}
+
+.checkout-inputs-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.success-message {
+  color: #f9bc60;
+  background-color: #004643;
+  margin: 20px auto;
+  padding: 10px;
+  width: 90%;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.success-order-message-1 {
+  font-size: 42px;
+  padding: 20px;
+  text-align: center;
+}
+
+.success-order-message-2 {
+  font-size: 30px;
+  padding: 40px;
+}
+
+@media screen and (max-width: 490px) {
+  .sections-container {
+    display: block;
+  }
+  .rows-container {
+    width: 90%;
+    margin: auto;
+  }
+  .order-section {
+    width: 90%;
+    margin: auto;
+  }
+  .total-container {
+    padding-right: 10px;
+  }
+  .delivery-section {
+    width: 90%;
+  }
+  .checkout-inputs {
+    padding: 10px;
+  }
+  .checkout-inputs-container {
+    display: block;
+  }
+  .checkout-input {
+    width: 80%;
+  }
+  .checkout-button {
+    width: 40%;
+  }
+  .checkout-rows-container {
+    max-height: 200px;
+  }
 }

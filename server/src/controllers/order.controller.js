@@ -54,9 +54,9 @@ function getOrdersByUser(req, res) {
 }
 
 function sendOrderConf(req, res) {
-    const { first_name, last_name, email, phone, message } = req.body;
+    const { user, cart, orderId } = req.body;
   
-    sendOrderConfirmation(email, first_name, last_name, phone, message, function (err, data) {
+    sendOrderConfirmation(user, cart, orderId, function (err, data) {
       if (err) {
         res.status(500).json({ message: "Internal Error", err: err });
       } else {

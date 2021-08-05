@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import './App.css';
 
-import UserProvider from './context/userContext/user.context';
+import { UserProvider } from './context/userContext/user.context';
 import CartProvider from './context/cartContext/cart.context';
 
 import ErrorBoundary from './components/errorBoundary/errorBoundary.component';
@@ -33,22 +33,22 @@ function App() {
     <UserProvider>
       <CartProvider>
         <div className={"app " + location}>
-          <Header />
-          <Switch>
-            <ErrorBoundary>
-            <Suspense fallback={<div className="loading">...Cargando</div>}>
-              <Route exact path="/" component={Homepage}/>            
-              <Route exact path='/admin' component={AdminPage} />
-              <Route exact path="/signin" component={SignInPage} />
-              <Route exact path="/register" component={RegisterPage} />
-              <Route exact path="/profile" component={ProfilePage} />
-              <Route exact path="/cart" component={CartPage} />
-              <Route exact path="/checkout" component={CheckoutPage} />
-              <Route exact path="/contact" component={ContactPage} />
-              <Route exact path="/quienes" component={QuienesPage} />
-            </Suspense>
-            </ErrorBoundary>
-          </Switch>        
+              <Header />
+                <Switch>
+                  <ErrorBoundary>
+                  <Suspense fallback={<div className="loading">...Cargando</div>}>
+                    <Route exact path="/" component={Homepage}/>            
+                    <Route exact path='/admin' component={AdminPage} />
+                    <Route exact path="/signin" component={SignInPage} />
+                    <Route exact path="/register" component={RegisterPage} />
+                    <Route exact path="/profile" component={ProfilePage} />
+                    <Route exact path="/cart" component={CartPage} />
+                    <Route exact path="/checkout" component={CheckoutPage} />
+                    <Route exact path="/contact" component={ContactPage} />
+                    <Route exact path="/quienes" component={QuienesPage} />
+                  </Suspense>
+                  </ErrorBoundary>
+              </Switch>      
           <Footer />
         </div> 
       </CartProvider>

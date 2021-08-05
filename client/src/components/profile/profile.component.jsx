@@ -35,7 +35,6 @@ const Profile = () => {
             getPastOrders()
         }
     },[userCtx.id])
-    console.log(pastOrders)
 
     const { 
         first_name,

@@ -50,7 +50,7 @@ function registerUser(req, res) {
     } = req.body;
   
     const hash = bcrypt.hashSync(password);
-    console.log(hash)
+
   
     db.transaction((trx) => {
       trx

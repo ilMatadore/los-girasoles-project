@@ -66,9 +66,10 @@ const Contact = () => {
     return (
         <form onSubmit={handleSubmit} className="contact-container">
             <h1>CONTACTO</h1>
-            <h2>Tienes alguna consulta? Te responderemos a la brevedad.</h2>
+            <h2>Tienes alguna consulta?</h2>
+            <h3>Te responderemos a la brevedad.</h3>
             { error ? <h3 style={{color: 'red', margin: '0' }}>{error}</h3> : null }
-            { success ? <h3 style={{color: 'green', margin: '0' }}>{success}</h3> : null }
+            { success ? <div className="success-message">{success}</div> : null }
             <div className="contact-inputs">
                 <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
                     <input 

@@ -4,22 +4,22 @@ import React, { useState, createContext } from 'react';
 const localUser = JSON.parse(localStorage.getItem('user')) || [];
 
 export const UserContext = createContext(
-//     {
-//     id: '',
-//     first_name: '',
-//     last_name: '',
-//     email: '',
-//     address: '',
-//     phone: '',
-//     city: '',
-//     state: '',
-//     successLogin: () => {},
-//     userLogout: () => {},
-//     updateProfile: () => {},
-// }
+    {
+    id: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    address: '',
+    phone: '',
+    city: '',
+    state: '',
+    successLogin: () => {},
+    userLogout: () => {},
+    updateProfile: () => {},
+}
 )
 
-const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
 
     const [id, setId] = useState(localUser.id);
     const [first_name, setFirstName] = useState(localUser.first_name);
@@ -87,5 +87,5 @@ const UserProvider = ({ children }) => {
     )
 }
 
-export default UserProvider;
+
 

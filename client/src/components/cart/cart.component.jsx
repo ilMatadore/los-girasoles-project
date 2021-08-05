@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import './cart.styles.css'
 
@@ -10,7 +10,13 @@ import { CartContext } from '../../context/cartContext/cart.context';
 const Cart = () => {
 
     const { cartItems, addItem, removeItem, cartTotal } = useContext(CartContext)
+    const [ disabled, setDisabled ] = useState(false);
 
+    useEffect(() => {
+        cartItems.length === 0 ? setDisabled(true) : setDisabled(false)
+
+    },[cartItems])
+    
     return (
         <div className="cart-container">
             <h2>Mi Carro</h2>
@@ -28,7 +34,7 @@ const Cart = () => {
             </div>
             <div className="cart-button-container">
                 <Link to="/"><button className="cart-back-button">Volver</button></Link>
-                <Link to="/checkout"><button className="cart-button">Continuar</button></Link>
+                <Link to="/checkout"><button className="cart-button" disabled={disabled}>Continuar</button></Link>
             </div>
                         
                 

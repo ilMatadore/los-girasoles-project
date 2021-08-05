@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 import './checkout.styles.css';
@@ -9,8 +9,16 @@ import { UserContext } from '../../context/userContext/user.context';
 
 const Checkout = () => {
 
+    const [ toHide, setToHide ] = useState(false);
+    const [ disabled, setDisabled ] = useState(false);
     const cartCtx = useContext(CartContext);
     const userCtx = useContext(UserContext);
+
+    useEffect(() => {
+        cartCtx.cartItems.length === 0 ? setDisabled(true) : setDisabled(false)
+
+    },[cartCtx.cartItems])
+
 
     const [userProfileData, setUserProfileData] = useState({
         first_name: userCtx.first_name, 
@@ -23,7 +31,7 @@ const Checkout = () => {
     })
 
     const [orderStatus, setOrderStatus] = useState({status: ''})
-    console.log(orderStatus)
+
 
     const { 
         first_name,
@@ -40,10 +48,23 @@ const Checkout = () => {
         setUserProfileData({ ...userProfileData, [name]: value });
       };
 
+    const sendConf = (user, cart, orderId) => {
+        fetch('https://localhost:3001/order/confirmation', {
+            method: 'post',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                user,
+                cart,
+                orderId,
+            })
+        })
+        .then((response) => response.json())
+        .then((res) => console.log(res))
+    }
+
     const handlePurchase = (e) => {
         e.preventDefault();
-        console.log(userCtx);
-        console.log(cartCtx);
+    
         fetch(`https://localhost:3001/order/`, {//https://localhost:3001
                 method: 'post',
                 headers: { "Content-Type": "application/json" },
@@ -60,14 +81,24 @@ const Checkout = () => {
                 })
             })
              .then((response) => response.json())
-             .then((res) => typeof res.order === 'number' ? (setOrderStatus({status:"success", order_id: res.order}), cartCtx.clearCart()) : setOrderStatus({status: "failed"}))
-             .catch((err) => console.log("Error al actualizar datos, intenta de nuevo" + err))
+             .then((res) => {
+                if (typeof res.order === 'number') {
+                    setOrderStatus({status:"success", order_id: res.order});
+                    sendConf(userCtx, cartCtx, res.order);
+                    cartCtx.clearCart();
+                    setToHide(true)
+                 } else {
+                    setOrderStatus({status: "failed"})
+                 }}
+             ) 
+             .catch((err) => console.log("Error al crear orden, intenta de nuevo" + err))
                
     }
 
     return (
         <div>
             <h1>Checkout</h1>
+            { toHide ? null : 
             <div className="sections-container">
                 <div className="order-section">
                     <h3>Pedido</h3>
@@ -87,7 +118,7 @@ const Checkout = () => {
             {/* { updateSuccess ? <h4 style={{color: 'green', margin: '0' }}>Cambios guardados con exito!</h4> : null}
             { error ? <h4 style={{color: 'red', margin: '0' }}>{error}</h4> : null } */}
                     <div className="checkout-inputs">
-                        <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                        <div className="checkout-inputs-container">
                             <input 
                                 className="checkout-input" 
                                 placeholder="Nombre" 
@@ -109,7 +140,7 @@ const Checkout = () => {
                                 required
                                 />                            
                         </div>
-                        <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                        <div className="checkout-inputs-container">
                             <input
                                 className="checkout-input" 
                                 placeholder="Telefono"
@@ -133,7 +164,7 @@ const Checkout = () => {
                             
                             
                         </div>
-                        <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
+                        <div className="checkout-inputs-container">
                             <input
                                 className="checkout-input" 
                                 placeholder="Direccion"
@@ -165,16 +196,16 @@ const Checkout = () => {
                     </div>
                         <div className="checkout-button-container">
                             <Link to="/cart" style={{width: "30%"}}><button className="checkout-back-button">Volver</button></Link>
-                            <button className="checkout-button" type="submit">Comprar</button>
+                            <button className="checkout-button" type="submit" disabled={disabled}>Comprar</button>
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> }
                     <div>
                         {orderStatus.status === 'success' ? 
-                            <div>
-                                <h1>Tu pedido ha sido procesado con exito, tu numero de order es {orderStatus.order_id} </h1>
-                                <h2>Te contactaremos a la brevedad</h2>
+                            <div className="success-message">
+                                <div className="success-order-message-1">Tu pedido ha sido procesado con exito, tu numero de orden es {orderStatus.order_id} </div>
+                                <div className="success-order-message-2">Te contactaremos a la brevedad</div>
                             </div> : orderStatus.status === 'failed' ? <h1>Ocurrio un error, intenta mas tarde</h1> : null}
                     </div>
         </div>

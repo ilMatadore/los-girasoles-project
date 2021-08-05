@@ -37,7 +37,6 @@ const CartProvider = ({ children }) => {
     const clearCart = () => {
         setCartItems([]);
         setCartItemsCount(0);
-        console.log('jaja')
         setCartTotal(0);
         localStorage.setItem("localCart", [])
     }

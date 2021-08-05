@@ -133,10 +133,11 @@
     display: block;
   }
   .header-user-name {
-    font-size: 20px;
+    font-size: 16px;
     text-align: right;
   }
   .OptionLink {
-    padding: 5px 5px;
+    padding: 8px 8px;
+    text-decoration: none;
   }
 }

@@ -19,7 +19,7 @@ services:
 
   web:
     # build: .
-    image: 'restarterdev/los-girasoles-project'
+    image: 'restarterdev/los-girasoles-project:latest'
     # working_dir: /app
     # environment:
     #   POSTGRES_URI: postgres://postgres:root@localhost:5432/girasolesdb
