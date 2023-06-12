@@ -1,11 +1,12 @@
-import React, { lazy, Suspense } from 'react';
+// import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import {Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 
 import { UserProvider } from './context/userContext/user.context';
 import CartProvider from './context/cartContext/cart.context';
 
-import ErrorBoundary from './components/errorBoundary/errorBoundary.component';
+// import ErrorBoundary from './components/errorBoundary/errorBoundary.component';
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.components';
 
