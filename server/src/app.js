@@ -9,11 +9,11 @@ const path = require('path');
 // const bcrypt = require("bcryptjs");
 const cookieSession = require('cookie-session');
 
-const userRouter = require('./routes/users.router');
-const profileRouter = require('./routes/profile.router');
-const contactRouter = require('./routes/contact.router');
-const productRouter = require('./routes/product.router');
-const orderRouter = require('./routes/order.router');
+const userRouter = require('./routes/users/users.router');
+const profileRouter = require('./routes/profile/profile.router');
+const contactRouter = require('./routes/contact/contact.router');
+const productRouter = require('./routes/product/product.router');
+const orderRouter = require('./routes/orders/order.router');
 
 const cors = require("cors");
 const morgan = require('morgan');

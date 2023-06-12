@@ -1,4 +1,4 @@
-const db = require('../models/users.model');
+const db = require('../../models/users.model');
 
 function getAllProducts(req, res) {
     db.select("*")

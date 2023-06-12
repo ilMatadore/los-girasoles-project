@@ -1,5 +1,5 @@
 const express = require('express');
-const orderController = require('../controllers/order.controller');
+const orderController = require('./order.controller');
 const orderRouter = express.Router();
 
 orderRouter.get("/", orderController.getAllOrders);

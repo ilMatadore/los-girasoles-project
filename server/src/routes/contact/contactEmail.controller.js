@@ -1,4 +1,4 @@
-const { sendMailFromContact } = require("../mail");
+const { sendMailFromContact } = require("../../mail");
 
 function sendContactEmail(req, res) {
     const { first_name, last_name, email, phone, message } = req.body;

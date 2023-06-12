@@ -1,5 +1,5 @@
-const db = require('../models/users.model');
-const {sendOrderConfirmation} = require("../mail");
+const db = require('../../models/users.model');
+const {sendOrderConfirmation} = require("../../mail");
 
 function getAllOrders(req, res) {
     db.select("*")

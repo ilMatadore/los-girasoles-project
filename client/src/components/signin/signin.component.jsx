@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './signin.styles.css';
 
 import { UserContext } from '../../context/userContext/user.context';
 
 const SignIn = (props) => {
-
+    const navigate = useNavigate();
     const userCtx = useContext(UserContext)
 
     const [userCredentials, setCredentials ] = useState({ email: '', password: '' })
@@ -32,8 +32,8 @@ const SignIn = (props) => {
         .then((res) => {
             if (res.accessToken) {
                 userCtx.successLogin(res.user);
-                localStorage.setItem('accessToken', res.accessToken)
-                props.history.push('/')
+                localStorage.setItem('accessToken', res.accessToken);
+                navigate('/');
             } else {
              setError(res.error)
             }})
@@ -73,4 +73,4 @@ const SignIn = (props) => {
     )
 }
 
-export default withRouter(SignIn);
+export default SignIn;

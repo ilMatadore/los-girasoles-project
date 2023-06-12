@@ -1,4 +1,4 @@
-const db = require('../models/users.model');
+const db = require('../../models/users.model');
 
 function getUserById(req, res) {
     const { id } = req.params;

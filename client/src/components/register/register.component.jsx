@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext/user.context';
 import './register.styles.css';
 
 const Register = (props) => {
 
     const { successLogin } = useContext(UserContext);
-
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         first_name: '', 
         last_name: '',
@@ -65,10 +65,10 @@ const Register = (props) => {
             .then((response) => response.json())
             .then((user) => { 
                 if (user.id) {
-                    successLogin(user)
-                    props.history.push('/')
+                    successLogin(user);
+                    navigate('/');
                 } else {
-                    setError(user.error)
+                    setError(user.error);
                 }})
             .catch((err) => setError("Error al crear el usuario, intenta de nuevo"))
         } catch(err) {
@@ -183,4 +183,4 @@ const Register = (props) => {
     )
 }
 
-export default withRouter(Register);
+export default Register;
