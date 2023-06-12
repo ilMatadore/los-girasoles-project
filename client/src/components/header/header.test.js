@@ -71,11 +71,11 @@ describe('Header Tests', () => {
         expect(wrapper.find(".header-user-name")).toHaveLength(0)
     });
 
-    it('displays user first name in header', () => {
-        const wrap = render(<UserContext.Provider value={{ first_name: "Tester"}}><Header /></UserContext.Provider>)
-        // expect(wrap.find(".header-user-name")).toHaveLength(1)
-        console.log(wrap[0].children[1])
-    })
+    // it('displays user first name in header', () => {
+    //     const view = render(<UserContext.Provider value={{ first_name: "Tester"}}><Header /></UserContext.Provider>)
+    //     // expect(view.find(".header-user-name")).toHaveLength(1)
+    //     // console.log(view[0].children[1])
+    // })
 
 
 

@@ -35,104 +35,71 @@ exports[`Header Tests Expect to render Header component 1`] = `
         }
       />
     </div>
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
+    <Link
+      className="OptionLink"
+      id="Home"
+      to="/"
     >
-      <Link
-        className="OptionLink"
-        id="Home"
-        to="/"
-      >
-        <FaHome
-          style={
-            Object {
-              "fontSize": "30px",
-            }
+      <FaHome
+        style={
+          Object {
+            "fontSize": "30px",
           }
-        />
-      </Link>
-      <Link
-        className="OptionLink"
-        id="Contact"
-        to="/contact"
-      >
-        <FaEnvelope
-          style={
-            Object {
-              "fontSize": "30px",
-            }
-          }
-        />
-      </Link>
-      <Link
-        className="OptionLink"
-        id="Cart"
-        to="/cart"
-      >
-        <FaShoppingCart
-          style={
-            Object {
-              "fontSize": "30px",
-            }
-          }
-        />
-      </Link>
-    </Router>
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
         }
-      }
+      />
+    </Link>
+    <Link
+      className="OptionLink"
+      id="Quienes"
+      to="/quienes"
     >
-      <Link
-        className="OptionLink"
-        id="SignIn"
-        to="/signin"
-      >
-        <FaSignInAlt
-          style={
-            Object {
-              "fontSize": "30px",
-            }
+      <FaAddressCard
+        style={
+          Object {
+            "fontSize": "30px",
           }
-        />
-      </Link>
-    </Router>
+        }
+      />
+    </Link>
+    <Link
+      className="OptionLink"
+      id="Contact"
+      to="/contact"
+    >
+      <FaEnvelope
+        style={
+          Object {
+            "fontSize": "30px",
+          }
+        }
+      />
+    </Link>
+    <Link
+      className="OptionLink"
+      id="Cart"
+      to="/cart"
+    >
+      <FaShoppingCart
+        style={
+          Object {
+            "fontSize": "30px",
+          }
+        }
+      />
+    </Link>
+    <Link
+      className="OptionLink"
+      id="SignIn"
+      to="/signin"
+    >
+      <FaSignInAlt
+        style={
+          Object {
+            "fontSize": "30px",
+          }
+        }
+      />
+    </Link>
   </div>
 </div>
 `;
