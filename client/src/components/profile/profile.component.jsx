@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './profile.styles.css';
+import { API_URL } from '../../constants/constants';
 
 import { UserContext } from '../../context/userContext/user.context'
 
@@ -23,7 +24,7 @@ const Profile = () => {
 
     useEffect(()=> {
         const getPastOrders = () => {
-            fetch(`https://localhost:3001/order/${userCtx.id}`, {//https://localhost:3001
+            fetch(`${API_URL}/order/${userCtx.id}`, {//https://localhost:3001
                 method: 'get',
                 headers: { "Content-Type": "application/json"},
             })
@@ -54,7 +55,7 @@ const Profile = () => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-            fetch(`https://localhost:3001/profile/${userCtx.id}`, {//https://localhost:3001
+            fetch(`${API_URL}/profile/${userCtx.id}`, {//https://localhost:3001
                 method: 'put',
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify({

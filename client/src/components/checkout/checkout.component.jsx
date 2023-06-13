@@ -6,6 +6,7 @@ import './checkout.styles.css';
 import CartItem from '../cart-item/cart-item.component';
 import { CartContext } from '../../context/cartContext/cart.context';
 import { UserContext } from '../../context/userContext/user.context';
+import { API_URL } from '../../constants/constants';
 
 const Checkout = () => {
 
@@ -49,7 +50,7 @@ const Checkout = () => {
       };
 
     const sendConf = (user, cart, orderId) => {
-        fetch('https://localhost:3001/order/confirmation', {
+        fetch(`${API_URL}/order/confirmation`, { //https://localhost:3001
             method: 'post',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -65,7 +66,7 @@ const Checkout = () => {
     const handlePurchase = (e) => {
         e.preventDefault();
     
-        fetch(`https://localhost:3001/order/`, {//https://localhost:3001
+        fetch(`${API_URL}/order/`, {//https://localhost:3001
                 method: 'post',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

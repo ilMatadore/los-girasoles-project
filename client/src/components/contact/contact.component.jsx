@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { UserContext} from "../../context/userContext/user.context";
 import './contact.styles.css';
-
+import { API_URL } from '../../constants/constants';
 
 const Contact = () => {
 
@@ -44,7 +44,7 @@ const Contact = () => {
     
     const handleSubmit = event => {
         event.preventDefault();
-        fetch("https://localhost:3001/contact", {//https://localhost:3001
+        fetch(`${API_URL}/contact`, {//https://localhost:3001
           method: "post",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

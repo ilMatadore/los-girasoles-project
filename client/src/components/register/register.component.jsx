@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext/user.context';
 import './register.styles.css';
+import { API_URL } from '../../constants/constants';
 
 const Register = (props) => {
 
@@ -48,7 +49,7 @@ const Register = (props) => {
             return;
           }
         try {
-            fetch('https://localhost:3001/user/register', { //https://localhost:3001
+            fetch(`${API_URL}/user/register`, { //https://localhost:3001
                 method: 'post',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

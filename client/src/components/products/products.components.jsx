@@ -5,12 +5,11 @@ import Aditional from '../aditional/aditional.component';
 import './products.styles.css';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import AOS from "aos";
+import { API_URL } from '../../constants/constants';
 
 import { CartContext } from '../../context/cartContext/cart.context';
 
-
 const Products = () => {
-
   useEffect(() => {
     getCanastas()
     getAdicionales()
@@ -25,7 +24,7 @@ const Products = () => {
   const [error, setError ] = useState(null)
 
   const getAdicionales = () => {
-    fetch('https://localhost:3001/product/adicionales', {//https://localhost:3001
+    fetch(`${API_URL}/product/adicionales`, {//https://localhost:3001/product/adicionales
       method: 'GET',
       headers: { "Content-Type": "application/json" },
   })
@@ -35,7 +34,7 @@ const Products = () => {
   }
 
   const getCanastas = () => {
-    fetch('https://localhost:3001/product/canastas', {//https://localhost:3001
+    fetch(`${API_URL}/product/canastas`, {//https://localhost:3001/product/canastas
       method: 'GET',
       headers: { "Content-Type": "application/json" },
   })
@@ -53,7 +52,8 @@ const Products = () => {
                 <p className="products-subtitle">Selecciona primero una o mas de nuestras canastas de productos organicos que mas gustes...</p>
             </div>
             <div className="products-container">
-                {canastas.map((canasta) => {return (<Card key={canasta.id}  canasta={canasta} addItem={cartCtx.addItem}/>)})}
+                {!error ? canastas.map((canasta) => {return (<Card key={canasta.id}  canasta={canasta} addItem={cartCtx.addItem}/>)})
+                : <div style={{color: 'red', textAlign: 'center', fontSize: '30px'}}>{error}</div>}
             </div>
             <div className="products-text-bottom">
                 <p className="products-subtitle">Tambien puedes agregar los siguientes productos a tu pedido..</p>

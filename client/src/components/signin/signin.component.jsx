@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './signin.styles.css';
+import { API_URL } from '../../constants/constants';
 
 import { UserContext } from '../../context/userContext/user.context';
 
@@ -20,8 +21,7 @@ const SignIn = (props) => {
     
     const handleSubmit = async event => {
         event.preventDefault();
-        //https://localhost:3001
-        fetch('https://localhost:3001/user/login', {
+        fetch(`${API_URL}/user/login`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
